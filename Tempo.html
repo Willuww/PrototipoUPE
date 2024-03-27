@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desactivar Casilla de Edición</title>
+</head>
+<body>
+    <label for="casillaEdicion">Casilla Editable:</label><br>
+    <input type="text" id="casillaEdicion" name="casillaEdicion"><br><br>
+
+    <p>La casilla de edición se desactivará el 1 de enero de 2025 a las 12:00:00 PM.</p>
+
+    <script>
+        // Función para verificar y desactivar la casilla de edición si es necesario
+        function verificarDesactivacion() {
+            // Obtener la fecha actual
+            var fechaActual = new Date();
+            
+            // Obtener la fecha de desactivación (ejemplo: 1 de enero de 2025 a las 12:00:00 PM)
+            var fechaDesactivacion = new Date('2024-03-27T11:16:00');
+            
+            // Comparar la fecha actual con la fecha de desactivación
+            if (fechaActual.getTime() >= fechaDesactivacion.getTime()) {
+                // Si la fecha actual es posterior o igual a la fecha de desactivación, deshabilitar la casilla de edición
+                document.getElementById('casillaEdicion').disabled = true;
+                
+                // Detener la verificación
+                clearInterval(verificarIntervalo);
+            }
+        }
+
+        // Verificar inicialmente al cargar la página
+        verificarDesactivacion();
+
+        // Verificar continuamente cada segundo
+        var verificarIntervalo = setInterval(verificarDesactivacion, 1000);
+    </script>
+</body>
+</html>

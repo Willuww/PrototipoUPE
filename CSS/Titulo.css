@@ -1,0 +1,9 @@
+#titulo {
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 230%;
+    color: rgba(87, 86, 86, 0.541);
+    -webkit-text-stroke-width: 1.5px; /* Ancho del contorno */
+    -webkit-text-stroke-color: rgb(0, 0, 0); /* Color del contorno */
+    
+  }

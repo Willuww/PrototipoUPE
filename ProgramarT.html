@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración de Fecha y Hora</title>
+    <script>
+        window.onload = function() {
+            // Obtener la fecha de inhabilitación desde el formulario
+            var fechaInhabilitacion = new Date(document.getElementById('fechaInhabilitacion').value);
+            var horaInhabilitacion = document.getElementById('horaInhabilitacion').value;
+            
+            // Establecer la fecha y hora de inhabilitación
+            fechaInhabilitacion.setHours(parseInt(horaInhabilitacion.split(':')[0]), parseInt(horaInhabilitacion.split(':')[1]));
+            
+            // Obtener la fecha actual
+            var fechaActual = new Date();
+            
+            // Comparar la fecha actual con la fecha de inhabilitación
+            if (fechaActual >= fechaInhabilitacion) {
+                // Si la fecha actual es posterior o igual a la fecha de inhabilitación, deshabilitar la casilla de edición
+                document.getElementById('casillaEdicion').disabled = true;
+            }
+        };
+    </script>
+</head>
+<body>
+    <label for="fechaInhabilitacion">Fecha de Inhabilitación:</label>
+    <input type="date" id="fechaInhabilitacion" name="fechaInhabilitacion"><br><br>
+    <label for="horaInhabilitacion">Hora de Inhabilitación:</label>
+    <input type="time" id="horaInhabilitacion" name="horaInhabilitacion"><br><br>
+    <p>Utiliza este formulario para configurar la fecha y hora en la que se deshabilitará la casilla de edición.</p>
+</body>
+</html>
